@@ -1,4 +1,4 @@
-package org.bluebird.UserInterface.Utils;
+package org.bluebird.Utils;
 
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
