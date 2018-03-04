@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="200.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bluebird.Login.LoginController">
+   <children>
+      <Label layoutX="20.0" layoutY="30.0" text="Jogador 1:" />
+      <Label layoutX="20.0" layoutY="98.0" text="Jogador 2:" />
+      <TextField fx:id="player2Name" layoutX="100.0" layoutY="93.0" prefWidth="200.0" />
+      <TextField fx:id="player1Name" layoutX="100.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" />
+      <Button fx:id="loginButton" layoutX="144.0" layoutY="161.0" mnemonicParsing="false" onAction="#login" text="Start" />
+      <Label fx:id="player2Status" layoutX="151.0" layoutY="134.0" />
+      <Label fx:id="player1Status" layoutX="151.0" layoutY="64.0" />
+   </children>
+</AnchorPane>
