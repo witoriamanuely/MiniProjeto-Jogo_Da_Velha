@@ -21,10 +21,10 @@ class BoardModel {
 
     void winner(int player) {
         if (player == 0) {
-            SecondaryWindowsInit.winnerWindow(LoginController.getUser1() + " é o Vencedor");
+            SecondaryWindowsInit.winnerWindow(BoardController.getUser1() + " é o Vencedor");
             try {
-                this.updateDB(LoginController.getUser1(), 1, 0, 0);
-                this.updateDB(LoginController.getUser2(), 0, 1, 0);
+                this.updateDB(BoardController.getUser1(), 1, 0, 0);
+                this.updateDB(BoardController.getUser2(), 0, 1, 0);
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println("Problema com BD " + e.getMessage());
@@ -32,8 +32,8 @@ class BoardModel {
         } else if (player == 1) {
             SecondaryWindowsInit.winnerWindow(LoginController.getUser2() + " é o Vencedor");
             try {
-                this.updateDB(LoginController.getUser1(), 0, 1, 0);
-                this.updateDB(LoginController.getUser2(), 1, 0, 0);
+                this.updateDB(BoardController.getUser1(), 0, 1, 0);
+                this.updateDB(BoardController.getUser2(), 1, 0, 0);
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println("Problema com BD " + e.getMessage());
@@ -41,8 +41,8 @@ class BoardModel {
         } else {
             SecondaryWindowsInit.winnerWindow("Jogo deu Empate");
             try {
-                this.updateDB(LoginController.getUser1(), 0, 0, 1);
-                this.updateDB(LoginController.getUser2(), 0, 0, 1);
+                this.updateDB(BoardController.getUser1(), 0, 0, 1);
+                this.updateDB(BoardController.getUser2(), 0, 0, 1);
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println("Problema com BD " + e.getMessage());

@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.bluebird.FileUtils.ConexaoBD;
 import org.bluebird.Utils.PrimaryWindowsInit;
 import org.bluebird.Utils.WindowsInit;
 

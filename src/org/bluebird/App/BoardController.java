@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.bluebird.Login.LoginController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,8 +11,10 @@ import java.util.ResourceBundle;
 public class BoardController implements Initializable {
 
     private int turn = 0;
-    private final int MAXTURNS = 9;
+    private final int MAX_TURNS = 9;
     private BoardModel boardModel = new BoardModel();
+    private static String user1;
+    private static String user2;
 
     @FXML
     private Label playerTurnStatus;
@@ -45,9 +46,25 @@ public class BoardController implements Initializable {
     @FXML
     private Button button9;
 
+    public static String getUser1() {
+        return user1;
+    }
+
+    public static void setUser1(String user1) {
+        BoardController.user1 = user1;
+    }
+
+    public static String getUser2() {
+        return user2;
+    }
+
+    public static void setUser2(String user2) {
+        BoardController.user2 = user2;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.playerTurnStatus.setText("Turno: " + LoginController.getUser1());
+        this.playerTurnStatus.setText("Turno: " + BoardController.user1);
     }
 
     @FXML
@@ -97,14 +114,20 @@ public class BoardController implements Initializable {
 
     private void play(Button button) {
         if (this.turn % 2 == 0) {
-            this.playerTurnStatus.setText("Turno: " + LoginController.getUser2());
             button.setText("X");
         } else {
-            this.playerTurnStatus.setText("Turno: " + LoginController.getUser1());
             button.setText("O");
         }
+
         button.setDisable(true);
+
         this.turn++;
+        if (this.turn % 2 == 0) {
+            this.playerTurnStatus.setText("Turno: " + BoardController.user1);
+        } else {
+            this.playerTurnStatus.setText("Turno: " + BoardController.user2);
+        }
+
         checkBoard();
     }
 
@@ -119,7 +142,7 @@ public class BoardController implements Initializable {
         boardModel.resetButton(button8);
         boardModel.resetButton(button9);
         this.turn = 0;
-        this.playerTurnStatus.setText("Turno: " + LoginController.getUser1());
+        this.playerTurnStatus.setText("Turno: " + BoardController.user1);
     }
 
     private void checkBoard() {
@@ -149,7 +172,7 @@ public class BoardController implements Initializable {
         } else if ((player = boardModel.checkWinner(this.button3, this.button6, this.button9)) != -1) {
             boardModel.winner(player);
             resetBoard();
-        } else if (this.turn == this.MAXTURNS) {
+        } else if (this.turn == this.MAX_TURNS) {
             boardModel.winner(2);
             resetBoard();
         }
