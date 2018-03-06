@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.bluebird.FileUtils.ConexaoBD;
 import org.bluebird.Utils.PrimaryWindowsInit;
 import org.bluebird.Utils.WindowsInit;
 
@@ -51,8 +52,12 @@ public class LoginController {
         } else {
             LoginController.User1 = this.player1Name.getText();
             LoginController.User2 = this.player2Name.getText();
-            WindowsInit.closeCurrentWindow(loginButton);
-            PrimaryWindowsInit.appWindow();
+            loginModel.checkAccount(User1);
+            loginModel.checkAccount(User2);
+            WindowsInit.closeCurrentWindow(this.loginButton);
+            PrimaryWindowsInit.statsWindow();
         }
     }
+
+
 }

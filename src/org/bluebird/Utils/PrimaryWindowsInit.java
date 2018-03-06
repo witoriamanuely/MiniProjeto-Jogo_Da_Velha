@@ -41,4 +41,8 @@ public class PrimaryWindowsInit implements WindowsInit {
         new PrimaryWindowsInit("/resources/fxml/login.fxml");
     }
 
+    public static void statsWindow() {
+        new PrimaryWindowsInit("/resources/fxml/stats.fxml");
+    }
+
 }
